@@ -2,28 +2,32 @@
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins/_breakpoints";
 
+@mixin responsiveSize($padding, $fontSize) {
+  .header {
+    font-size: $fontSize;
+    padding: $padding;
+ }
+}
+
 .header {
   text-transform: uppercase;
-  padding: 5px 45px;
   background: #2F2F2F;
   color: #CFCFCF;
-  font-size: 1rem;
+}
+
+//Mixin para redimensionamento para mobile
+@include media-breakpoint-up(xs) {
+  @include responsiveSize(5px 20px, 1.2rem)
 }
 
 @include media-breakpoint-up(sm) {
-  .header {
-    font-size: 1.2rem;
-  }
+  @include responsiveSize(5px 20px, 1.2rem)
 }
 
 @include media-breakpoint-up(md) {
-  .header {
-    font-size: 1.4rem;
-  }
+  @include responsiveSize(5px 80px, 1.4rem)
 }
 
 @include media-breakpoint-up(lg) {
-  .header {
-    font-size: 1.6rem;
-  }
+  @include responsiveSize(5px 80px, 1.4rem)
 }
