@@ -1,0 +1,32 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
+@mixin responsiveSize($margin, $height) {
+  .list-view {
+    margin:  $margin;
+    min-height: $height;
+ }
+}
+
+.list-view {
+  background: #2F2F2F;
+}
+
+//Mixin para redimensionamento para mobile
+@include media-breakpoint-up(xs) {
+  @include responsiveSize(0px 20px, calc( 100vh - 130px ))
+}
+
+@include media-breakpoint-up(sm) {
+  @include responsiveSize(0px 20px, calc( 100vh - 130px ))
+}
+
+@include media-breakpoint-up(md) {
+  @include responsiveSize(0px 80px, calc( 100vh - 230px ))
+}
+
+@include media-breakpoint-up(lg) {
+  @include responsiveSize(0px 80px, calc( 100vh - 230px ))
+}
+

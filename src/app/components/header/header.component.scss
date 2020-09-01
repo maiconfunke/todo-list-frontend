@@ -1,0 +1,29 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
+.header {
+  text-transform: uppercase;
+  padding: 5px 45px;
+  background: #2F2F2F;
+  color: #CFCFCF;
+  font-size: 1rem;
+}
+
+@include media-breakpoint-up(sm) {
+  .header {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .header {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .header {
+    font-size: 1.6rem;
+  }
+}
