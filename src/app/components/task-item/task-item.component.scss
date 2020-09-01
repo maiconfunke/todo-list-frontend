@@ -1,46 +1,77 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
 @mixin ellipsis() {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-
+@mixin responsiveSize(
+  $alignItems,
+  $flexDirection,
+  $actionsMarginTop,
+  $headerMarginBottom,
+  $widthHeader,
+  $hasEllipsis,
+  $descriptionWidth
+  ) {
 .task-item {
+  align-items: $alignItems;
+  flex-direction: $flexDirection;
+  & .header {
+    margin-bottom: $headerMarginBottom;
+    width: $widthHeader;
+  }
+  & .actions {
+    margin-top: $actionsMarginTop;
+  }
+  & .description {
+    width: $descriptionWidth;
+    @if $hasEllipsis {
+      @include ellipsis();
+    }
+  }
+  & .actions {
+    @if $hasEllipsis {
+      width: 10%;
+     } @else {
+      width: 100%;
+     }
+  }
+}
+}
+
+
+ .task-item {
   margin-bottom: 15px;
-  max-height: 200px;
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16)), #121212;
   box-shadow: 0px 24px 38px rgba(0, 0, 0, 0.14), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 11px 15px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   padding: 20px;
   color: #8c8c8c;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 
-  & .check-done {
-    width: 3%;
-    & input {
-      cursor: pointer;
+  & .header {
+    display: flex;
+    & .form-check {
+      margin-right: 10px;
+      & input {
+        cursor: pointer;
+      }
+    }
+    & .title {
+      color: #e4e4e4;
+      margin-right: 5px;
+      @include ellipsis();
     }
   }
-
-  & .title {
-    color: #e4e4e4;
-    width: 22%;
-    @include ellipsis();
-  }
-
   & .description {
     font-size: 14px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 65%;
-    margin-left: 5px;
-    @include ellipsis();
   }
   & .actions {
-    width: 10%;
     display: flex;
     justify-content: flex-end;
     & .action {
@@ -50,4 +81,21 @@
   }
 }
 
+
+//Mixin para redimensionamento para mobile
+@include media-breakpoint-up(xs) {
+  @include responsiveSize(inherit, column, 20px, 20px, 100%, false, 100%)
+}
+
+@include media-breakpoint-up(sm) {
+  @include responsiveSize(inherit, column, 20px, 20px, 100%, false, 100%)
+}
+
+@include media-breakpoint-up(md) {
+  @include responsiveSize(center, row, 0px, 0px, 25%, true, 65%)
+}
+
+@include media-breakpoint-up(lg) {
+  @include responsiveSize(center, row, 0px, 0px, 25%, true, 65%)
+}
 
