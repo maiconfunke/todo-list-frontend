@@ -4,6 +4,7 @@ import { ListViewComponent } from './list-view.component';
 import { ListCardModule } from '../list-card/list-card.module';
 import { ActionButtonModule } from '../action-button/action-button.module';
 import { SearchItemModule } from '../search-item/search-item.module';
+import { ModalModule } from '../modal/modal.module';
 
 
 
@@ -14,7 +15,8 @@ import { SearchItemModule } from '../search-item/search-item.module';
     CommonModule,
     ListCardModule,
     ActionButtonModule,
-    SearchItemModule
+    SearchItemModule,
+    ModalModule
   ]
 })
 export class ListViewModule { }

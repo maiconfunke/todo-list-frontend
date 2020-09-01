@@ -1,0 +1,80 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
+@mixin responsiveSize($sideNavSize) {
+  .sidenav {
+    &.opened {
+      width: $sideNavSize;
+    }
+  }
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  box-shadow: 0px 24px 38px rgba(0, 0, 0, 0.14), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 11px 15px rgba(0, 0, 0, 0.2);
+  & .content {
+    min-width: 300px;
+    padding: 20px;
+    & input, textarea {
+      font-size: 14px;
+      font-weight: 100;
+      border-radius: 0px;
+    }
+    & label {
+      font-weight: 100;
+      color: #F8F5F5;
+    }
+    & .title {
+      text-transform: uppercase;
+      font-weight: 100;
+      color: #F8F5F5;
+      font-size: 38px;
+      margin-bottom: 30px;
+    }
+  }
+  & .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: #F8F5F5;
+    cursor: pointer;
+  }
+  &.opened {
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+}
+
+//Mixin para redimensionamento para mobile
+@include media-breakpoint-up(xs) {
+  @include responsiveSize(100%)
+}
+
+@include media-breakpoint-up(sm) {
+  @include responsiveSize(100%)
+}
+
+@include media-breakpoint-up(md) {
+  @include responsiveSize(75%)
+}
+
+@include media-breakpoint-up(lg) {
+  @include responsiveSize(30%)
+}
+

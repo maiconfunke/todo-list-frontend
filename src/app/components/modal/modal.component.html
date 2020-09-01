@@ -1,1 +1,16 @@
-<p>modal works!</p>
+<div class="sidenav" [ngClass]="{'opened': sideNavIsOpen }">
+  <span class="closebtn" (click)="closeSideNav()">&times;</span>
+  <div class="content">
+    <div class="title">{{ title }}</div>
+    <div class="form-group">
+      <label for="formGroupExampleInput">Título</label>
+      <input type="text" class="form-control" [(ngModel)]="item.title" placeholder="Digite um título...">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Descrição</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="item.description" rows="6" placeholder="Digite uma descrição..."></textarea>
+    </div>
+    <app-action-button (onClick)="create()" [hiddenIconPlus]="true" [label]="'criar'"></app-action-button>
+  </div>
+</div>
+<app-action-button (onClick)="showSideNav()" [label]="title"></app-action-button>1

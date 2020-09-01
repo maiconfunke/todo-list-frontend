@@ -3,7 +3,7 @@
   <div class="row header">
       <div class="title col-lg-10">listas</div>
       <div class="col-lg-2 col-8 col-xs-6 col-md-6">
-        <app-action-button [label]="'nova lista'"></app-action-button>
+        <app-modal [title]="'nova lista'" (onCreate)="createList($event)"></app-modal>
       </div>
   </div>
   <div class="row col-md-12 col-12 col-lg-12 col-xs-12">

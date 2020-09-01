@@ -1,6 +1,6 @@
 <div class="action-button">
-  <button type="button" class="btn btn-primary">{{ label }}</button>
-  <div class="icon">
+  <button type="button" class="btn btn-primary" (click)="btnClicked()">{{ label }}</button>
+  <div class="icon" [hidden]="hiddenIconPlus">
     <span class="icon-plus">+</span>
   </div>
 </div>

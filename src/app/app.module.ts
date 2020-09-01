@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TaskViewModule } from './components/task-view/task-view.module';
 import { ListViewModule } from './components/list-view/list-view.module';
 import { HeaderModule } from './components/header/header.module';
+import { ModalModule } from './components/modal/modal.module';
 
 @NgModule({
   declarations: [

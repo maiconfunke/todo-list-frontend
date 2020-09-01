@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalComponent } from './modal.component';
+import { ActionButtonModule } from '../action-button/action-button.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -8,7 +10,9 @@ import { ModalComponent } from './modal.component';
   declarations: [ModalComponent],
   exports: [ModalComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    ActionButtonModule,
+    FormsModule
   ]
 })
 export class ModalModule { }

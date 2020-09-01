@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
+import { Task } from '../../interfaces/task';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-task-view',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskViewComponent implements OnInit {
 
-  constructor() { }
+  listId: string;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(({ id }) => {
+      this.listId = id;
+    });
+  }
+
+  createTask(task: Task) {
+    task.listId = this.listId;
+    console.log(task);
   }
 
 }

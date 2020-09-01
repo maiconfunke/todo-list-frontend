@@ -5,6 +5,7 @@ import { ActionButtonModule } from '../action-button/action-button.module';
 import { SearchItemModule } from '../search-item/search-item.module';
 import { BreadcrumbModule } from '../breadcrumb/breadcrumb.module';
 import { TaskItemModule } from '../task-item/task-item.module';
+import { ModalModule } from '../modal/modal.module';
 
 
 
@@ -16,7 +17,8 @@ import { TaskItemModule } from '../task-item/task-item.module';
     ActionButtonModule,
     SearchItemModule,
     BreadcrumbModule,
-    TaskItemModule
+    TaskItemModule,
+    ModalModule
   ]
 })
 export class TaskViewModule { }
