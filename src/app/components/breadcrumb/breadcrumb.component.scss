@@ -1,0 +1,9 @@
+.breadcrumbs {
+  font-size: 12px;
+  font-weight: 300;
+  color: #F8F5F5;
+  & .active {
+    color: #BB86FC;
+    cursor: pointer;
+  }
+}

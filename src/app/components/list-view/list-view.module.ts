@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListViewComponent } from './list-view.component';
 import { ListCardModule } from '../list-card/list-card.module';
 import { ActionButtonModule } from '../action-button/action-button.module';
+import { SearchItemModule } from '../search-item/search-item.module';
 
 
 
@@ -12,7 +13,8 @@ import { ActionButtonModule } from '../action-button/action-button.module';
   imports: [
     CommonModule,
     ListCardModule,
-    ActionButtonModule
+    ActionButtonModule,
+    SearchItemModule
   ]
 })
 export class ListViewModule { }

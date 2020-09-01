@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { TaskViewModule } from './components/task-view/task-view.module';
 import { ListViewModule } from './components/list-view/list-view.module';
 import { HeaderModule } from './components/header/header.module';
-import { SearchItemModule } from './components/search-item/search-item.module';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -16,8 +16,7 @@ import { SearchItemModule } from './components/search-item/search-item.module';
     AppRoutingModule,
     ListViewModule,
     TaskViewModule,
-    HeaderModule,
-    SearchItemModule
+    HeaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

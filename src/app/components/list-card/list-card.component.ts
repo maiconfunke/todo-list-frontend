@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { List } from '../../interfaces/list';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-card',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() list: List;
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  public showTasks(): void {
+    this.router.navigateByUrl(`/list/${this.list._id}/tasks`);
   }
 
 }

@@ -11,6 +11,10 @@
     background: #fff;
     border-radius: 0px;
   }
+  & .form-control {
+    font-size: 12px;
+    font-weight: 100;
+  }
 }
 
 @mixin responsiveSize($padding, $height) {
