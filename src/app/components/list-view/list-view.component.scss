@@ -27,6 +27,17 @@
       color: #F8F5F5;
     }
   }
+
+  & .form-check {
+    color: #fff;
+    font-weight: 100;
+    font-size: 13px;
+    margin-bottom: 30px;
+    color: #cacaca;
+    & input {
+      margin-top: 3px;;
+    }
+  }
 }
 
 //Mixin para redimensionamento para mobile
@@ -39,10 +50,10 @@
 }
 
 @include media-breakpoint-up(md) {
-  @include responsiveSize(0px 80px, calc( 100vh - 230px ), 30px, 72px, -20px)
+  @include responsiveSize(0px 80px, calc( 100vh - 230px ), 30px 40px, 72px, -20px)
 }
 
 @include media-breakpoint-up(lg) {
-  @include responsiveSize(0px 80px, calc( 100vh - 230px ), 30px, 72px, -20px)
+  @include responsiveSize(0px 80px, calc( 100vh - 230px ), 30px 40px, 72px, -20px)
 }
 
