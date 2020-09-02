@@ -1,9 +1,9 @@
-<div class="list-card" (click)="showTasks()">
-  <div class="title">{{ list.title }}</div>
+<div class="list-card">
+  <div class="title" (click)="showTasks()">{{ list.title }}</div>
   <div class="description">{{ list.description }}</div>
   <div class="actions">
-    <img src="../../../assets/edit-icon.svg" class="action" title="Editar lista" />
-    <img src="../../../assets/archive-icon.svg" class="action" title="Arquivar lista"/>
-    <img src="../../../assets/remove-icon.svg" class="action" title="Remover lista" />
+    <img src="../../../assets/edit-icon.svg" class="action" *ngIf="list.active" title="Editar lista" />
+    <img src="../../../assets/archive-icon.svg" class="action" *ngIf="list.active" (click)="archiveList(list._id)" title="Arquivar lista"/>
+    <img src="../../../assets/remove-icon.svg" class="action" (click)="removeList(list._id)" title="Remover lista" />
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { List } from '../../interfaces/list';
 import { Router } from '@angular/router';
 import { BreadcrumbService } from '../breadcrumb/breadcrumb.service';
@@ -11,6 +11,8 @@ import { BreadcrumbService } from '../breadcrumb/breadcrumb.service';
 export class ListCardComponent implements OnInit {
 
   @Input() list: List;
+  @Output() onRemove = new EventEmitter();
+  @Output() onArchive = new EventEmitter();
 
   constructor(private router: Router, private breadCrumbService: BreadcrumbService) { }
 
@@ -22,4 +24,11 @@ export class ListCardComponent implements OnInit {
     this.router.navigateByUrl(`/list/${this.list._id}/tasks`);
   }
 
+  public removeList(id: string): void {
+    this.onRemove.emit();
+  }
+
+  public archiveList(id: string): void {
+    this.onArchive.emit();
+  }
 }

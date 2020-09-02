@@ -17,12 +17,21 @@ export class ApiService {
     return this.http.post(`${this.url}/lists`, list);
   }
 
+  public removeList(id: string): Observable<any> {
+    return this.http.delete(`${this.url}/lists/${id}`)
+  }
+
+  public archiveList(id: string): Observable<any> {
+    return this.http.put(`${this.url}/lists/${id}/archived`, {});
+  }
+
   public createTask(task: Task): Observable<Task> {
     return this.http.post(`${this.url}/tasks`, task);
   }
 
-  public getListsActive(): Observable<List> {
-    return this.http.get(`${this.url}/lists`);
+  public getLists(isArchived: boolean): Observable<List> {
+    const filter = isArchived ? '/archived' : '';
+    return this.http.get(`${this.url}/lists${filter}`);
   }
 
   public getTasksByList(listId: string): Observable<Task> {

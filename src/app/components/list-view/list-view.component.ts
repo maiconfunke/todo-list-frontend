@@ -9,6 +9,7 @@ import { ApiService } from '../../services/api.service';
 })
 export class ListViewComponent implements OnInit {
 
+  isArchive = false;
   lists: List[] = [];
   constructor(private apiService: ApiService) { }
 
@@ -21,8 +22,25 @@ export class ListViewComponent implements OnInit {
   }
 
   public getLists() {
-    this.apiService.getListsActive().subscribe((lists) => {
+    this.apiService.getLists(this.isArchive).subscribe((lists) => {
       this.lists = lists as List[];
     });
+  }
+
+  public removeList(id: string) {
+    this.apiService.removeList(id).subscribe((data) => {
+      this.getLists();
+     });
+  }
+
+  public archiveList(id: string) {
+    this.apiService.archiveList(id).subscribe((data) => {
+      this.getLists();
+     });
+  }
+
+  public showArchivedLists({ target }) {
+    this.isArchive = target.checked;
+    this.getLists();
   }
 }
