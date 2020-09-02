@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { List } from '../../interfaces/list';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-list-view',
@@ -8,13 +9,20 @@ import { List } from '../../interfaces/list';
 })
 export class ListViewComponent implements OnInit {
 
-  constructor() { }
+  lists: List[] = [];
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+   this.getLists();
   }
 
   public createList(list: List): void {
-    console.log(list);
+    this.apiService.createList(list).subscribe((data) => this.getLists());
   }
 
+  public getLists() {
+    this.apiService.getListsActive().subscribe((lists) => {
+      this.lists = lists as List[];
+    });
+  }
 }

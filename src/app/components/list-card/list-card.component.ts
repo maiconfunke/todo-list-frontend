@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { List } from '../../interfaces/list';
 import { Router } from '@angular/router';
+import { BreadcrumbService } from '../breadcrumb/breadcrumb.service';
 
 @Component({
   selector: 'app-list-card',
@@ -11,12 +12,13 @@ export class ListCardComponent implements OnInit {
 
   @Input() list: List;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private breadCrumbService: BreadcrumbService) { }
 
   ngOnInit(): void {
   }
 
   public showTasks(): void {
+    this.breadCrumbService.setCurrentListRoute(this.list);
     this.router.navigateByUrl(`/list/${this.list._id}/tasks`);
   }
 
